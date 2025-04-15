@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO HISTORY CHAT</title>
+    <link rel="stylesheet" href="123.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- <script src="/fejs.js" defer></script> -->
+</head>
+
+<body>
+    <!-- <img class="image" src="/123333.png"> -->
+    <section id="chatwindow">
+
+    </section>
+
+    <form action="#" id="inputsection" class="inputsection" autocomplete="off">
+        <input type="text" id="myMsg">
+        <button type="submit" id="sendBtn">Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const ting = new Audio("msg.mp3")
+        const socket = io()
+        const form = document.getElementById("inputsection")
+        const msgInp = document.getElementById("myMsg")
+        const chatwindow = document.getElementById("chatwindow")
+
+        function append(msg, position) {
+            const newMsg = document.createElement('div');
+            newMsg.innerText = msg
+            newMsg.classList.add('msg', position);
+            chatwindow.append(newMsg);
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            console.log("this is clicked");
+
+            const message = msgInp.value;
+            append(`You : ${message}`, 'right')
+            ting.play()
+            socket.emit('send', message)
+            msgInp.value = ''
+
+
+        })
+
+        const name = prompt("What should we call u?")
+        socket.emit("new-entry", name)
+
+        socket.on('user-joined', (name) => {
+            append(`${name} JOINED THE CHAT!!`, 'alert')
+            ting.play()
+        })
+        socket.on('recieve', data => {
+            append(`${data.name} : ${data.message}`, 'left')
+            ting.play()
+        })
+
+        socket.on('leave', (data) => {
+            append(`${data} LEFT THE CHAT!!`, 'alert')
+            ting.play()
+        })
+
+
+
+    </script>
+</body>
+
+</html>
