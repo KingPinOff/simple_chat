@@ -6,6 +6,10 @@ html{
     
     /* background-image:linear-gradient(45deg, black,grey) ; */
 }
+.arrow{
+    height: 100%;
+    width: auto;
+}
 .image{
     max-height: 30%;
     max-width: 30%;
@@ -104,6 +108,10 @@ html{
         width: 25%;
         font-family:'Times New Roman', Times, serif;
         font-size: 1em;
+    }
+    .arrow{
+        height: auto;
+        width: 100%;;
     }
     
 }
