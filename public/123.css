@@ -1,22 +1,24 @@
-
-html{
+html {
     background-color: #98FBCB;
     color: white;
     height: 100%;
-    
+
     /* background-image:linear-gradient(45deg, black,grey) ; */
 }
-.arrow{
+
+.arrow {
     height: 100%;
     width: auto;
 }
-.image{
+
+.image {
     max-height: 30%;
     max-width: 30%;
     margin: 0 40%;
     box-sizing: border-box;
 }
-#chatwindow{
+
+#chatwindow {
     /* background-image: linear-gradient(rgb(100, 14, 14),rgb(127, 18, 18)); */
     background-color: #BFFFED;
     margin: auto;
@@ -30,9 +32,10 @@ html{
 
 
 }
-.msg{
+
+.msg {
     background-color: navy;
-    margin: 3px 10px; 
+    margin: 3px 10px;
     margin-bottom: 5px;
     min-height: 5%;
     padding: 10px;
@@ -40,24 +43,26 @@ html{
     color: white;
     overflow-wrap: break-word;
 }
-.left{
+
+.left {
     float: left;
     clear: both;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    
+
 
 
 }
-.right{
+
+.right {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     float: right;
     clear: both;
 }
 
-.alert{
-    margin:5px auto;
+.alert {
+    margin: 5px auto;
     clear: both;
     max-height: 20%;
     max-width: 30%;
@@ -66,52 +71,58 @@ html{
     background-color: grey;
 }
 
-.inputsection{
+.inputsection {
     margin: auto;
     display: flex;
     flex-direction: row;
     height: 10vh;
     width: 80vw;
     flex-wrap: nowrap;
-    border: 3px solid black;  
-    box-sizing: border-box;  
+    border: 3px solid black;
+    box-sizing: border-box;
 }
 
-#myMsg{
-    
-    width:75%;
+#myMsg {
+
+    width: 75%;
     flex-grow: 1;
     font-size: larger;
 }
-#sendBtn{   
-    min-width: 25%;
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2em;
+
+#sendBtn {
+    height: 100%;
+        aspect-ratio: 1;
+        margin: 0;
 
 }
+
 @media (max-width: 320px) {
-    .inputsection{
+    .inputsection {
         flex-direction: row;
         height: 8vh;
         border: 3px solid black;
-        box-sizing: border-box;    
+        box-sizing: border-box;
     }
-    
-    #myMsg{
-        
-        width:75%;
+
+    #myMsg {
+
+        width: 75%;
         font-size: larger;
     }
-    #sendBtn{   
-   
-        width: 25%;
-        font-family:'Times New Roman', Times, serif;
-        font-size: 1em;
+
+    #sendBtn {
+
+        height: 100%;
+        aspect-ratio: 1;
+        margin: 0;
+        /* font-family: 'Times New Roman', Times, serif;
+        font-size: 2em; */
     }
-    .arrow{
+
+    .arrow {
         height: auto;
-        width: 100%;;
+        width: 100%;
+        ;
     }
-    
+
 }
